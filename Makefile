@@ -40,6 +40,11 @@ test-smoke:
 	@echo "Running smoke tests in Docker..."
 	docker-compose run --rm jobprocessor mvn test -Dtest=EventControllerSmokeTestSimple
 
+# Run unit tests in Docker (excluding smoke tests)
+test-unit:
+	@echo "Running unit tests in Docker..."
+	docker-compose run --rm jobprocessor mvn test -Dtest='!*Smoke*'
+
 # Run the Spring Boot server in detached mode
 run-server:
 	@echo "Starting Spring Boot server in Docker (detached mode)..."

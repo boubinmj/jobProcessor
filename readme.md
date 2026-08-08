@@ -14,7 +14,7 @@ A concurrent event processing system built with Spring Boot and Docker. Submit e
 docker-compose up --build
 ```
 
-Application will be available at: **http://localhost:8080**
+Application will be available at: **http://localhost:8080/index.html**
 
 ### Option 2: Local Maven Build
 
@@ -23,7 +23,19 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-Application will be available at: **http://localhost:8080**
+Application will be available at: **http://localhost:8080/index.html**
+
+---
+
+## Build & Run with Make
+
+```bash
+make build              # Build the Docker image
+make install            # Install dependencies  
+make run-build-server   # Build and start the server
+```
+
+Then access the app at **http://localhost:8080/index.html**
 
 ---
 
@@ -42,18 +54,7 @@ Application will be available at: **http://localhost:8080**
 - View real-time metrics: queue size, active workers, completion rate, processing time, worker utilization
 - Interactive web dashboard with auto-refreshing stats
 - 100% containerized with Docker
-
----
-
-## Build & Run with Make
-
-```bash
-make build              # Build the Docker image
-make install            # Install dependencies  
-make run-build-server   # Build and start the server
-```
-
-Then access the app at **http://localhost:8080**
+![Screen recording demo](docs/media/java-final.gif)
 
 ---
 

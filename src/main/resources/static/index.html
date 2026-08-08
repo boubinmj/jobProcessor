@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             min-height: 100vh;
             padding: 20px;
         }
@@ -93,7 +93,7 @@
         }
 
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
             border: none;
             cursor: pointer;
@@ -118,7 +118,7 @@
         }
 
         .metric-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #764ba2;
             color: white;
             padding: 20px;
             border-radius: 8px;
@@ -239,7 +239,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🚀 Event-Driven Processing Simulator</h1>
+            <h1>Event-Driven Processing Simulator</h1>
             <p>Submit events and watch them process asynchronously across worker threads</p>
         </header>
 
@@ -300,7 +300,7 @@
         <div class="two-column-grid">
             <!-- Queued Events -->
             <div class="card">
-                <h2>📋 Queued Events</h2>
+                <h2>Queued Events</h2>
                 <div class="event-list" id="queuedList">
                     <div class="empty-message">No queued events</div>
                 </div>
@@ -308,7 +308,7 @@
 
             <!-- Running Events -->
             <div class="card">
-                <h2>⚙️ Running Events</h2>
+                <h2>Running Events</h2>
                 <div class="event-list" id="runningList">
                     <div class="empty-message">No running events</div>
                 </div>
@@ -317,7 +317,7 @@
 
         <!-- Completed Events -->
         <div class="card" style="margin-top: 20px;">
-            <h2>✅ Completed Events</h2>
+            <h2>Completed Events</h2>
             <div class="event-list" id="completedList">
                 <div class="empty-message">No completed events</div>
             </div>
@@ -461,10 +461,10 @@
          */
         function formatEventType(eventType) {
             const map = {
-                'CREATE_ORDER': '📦 Create Order',
-                'RECEIVE_PAYMENT': '💳 Receive Payment',
-                'UPDATE_INVENTORY': '📚 Update Inventory',
-                'SHIP_ORDER': '🚚 Ship Order'
+                'CREATE_ORDER': 'Create Order',
+                'RECEIVE_PAYMENT': 'Receive Payment',
+                'UPDATE_INVENTORY': 'Update Inventory',
+                'SHIP_ORDER': 'Ship Order'
             };
             return map[eventType] || eventType;
         }

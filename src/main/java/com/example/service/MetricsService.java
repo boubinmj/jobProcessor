@@ -4,6 +4,7 @@ import com.example.model.Event;
 import com.example.model.EventStatus;
 import com.example.repository.EventRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -18,6 +19,9 @@ public class MetricsService {
 
     private final EventRepository eventRepository;
     private final EventService eventService;
+
+    @Value("${worker.thread.count:3}")
+    private int workerThreadCount;
 
     public MetricsService(EventRepository eventRepository, EventService eventService) {
         this.eventRepository = eventRepository;
@@ -68,14 +72,16 @@ public class MetricsService {
     }
 
     /**
-     * Calculate worker utilization as a percentage (running events / total events * 100).
+     * Calculate worker utilization as a percentage (running events / total worker threads * 100).
+     * 0% means no workers are in use, 100% means all workers are busy.
      */
     private double calculateWorkerUtilization(long runningCount) {
-        long totalCount = eventRepository.count();
-        if (totalCount == 0) {
+        if (workerThreadCount == 0) {
             return 0.0;
         }
 
-        return (double) runningCount / totalCount * 100;
+        double utilization = (double) runningCount / workerThreadCount * 100;
+        // Cap at 100% to handle edge cases
+        return Math.min(utilization, 100.0);
     }
 }

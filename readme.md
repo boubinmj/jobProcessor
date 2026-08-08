@@ -49,12 +49,12 @@ Then access the app at **http://localhost:8080/index.html**
 
 ## What's Inside
 
+![Screen recording demo](docs/media/java-final.gif)
+
 - Submit events via REST API
 - Watch them get processed by 3 concurrent worker threads
 - View real-time metrics: queue size, active workers, completion rate, processing time, worker utilization
 - Interactive web dashboard with auto-refreshing stats
-- 100% containerized with Docker
-![Screen recording demo](docs/media/java-final.gif)
 
 ---
 
@@ -64,10 +64,16 @@ For comprehensive documentation including:
 - Detailed architecture overview
 - Complete REST API reference
 - Event lifecycle and timing
-- Configuration options
-- Design patterns and learning objectives
-- Troubleshooting guide
 
-**See [DESCRIPTION.md](DESCRIPTION.md)**
+**See [DESCRIPTION.md](docs/documents/DESCRIPTION.md)**
+
+For a full project report discussing the Java concepts covered in this project including
+
+- Threading and concurrent processing
+- Database persistance with H2
+- Dependancy Injection
+- REST API networking with Java Springboot
+
+**See Project_Report.pdf**
 
 ---

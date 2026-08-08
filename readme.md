@@ -212,13 +212,57 @@ processingTimeMs = baseProcessingTime × eventSize
 
 **Default**: `baseProcessingTime = 1000ms`, so a size 5 event takes 5 seconds to process.
 
+### Running with Docker
+
+The easiest way to run this application is with Docker—no Java or Maven installation required.
+
+#### Prerequisites
+- Docker and docker-compose installed
+
+#### Quick Start
+
+```bash
+cd jobProcessor
+docker-compose up --build
+```
+
+The application will be available at:
+```
+http://localhost:8080
+```
+
+**First run**: The image build may take a few minutes (Java, Maven, and dependencies). Subsequent runs start instantly.
+
+**Stopping the application**:
+```bash
+docker-compose down
+```
+
+#### Configuration
+
+You can override the default worker thread count when starting the container:
+
+```bash
+docker-compose run -e WORKER_THREAD_COUNT=5 jobprocessor
+```
+
+Or modify the `docker-compose.yml` environment variable before starting:
+
+```yaml
+environment:
+  - WORKER_THREAD_COUNT=5  # Change from default of 3
+```
+
+---
+
 ### Configuration
 
 Edit `src/main/resources/application.properties` to customize:
 
 ```properties
 # Number of concurrent worker threads (default: 3)
-worker.thread.count=3
+# Can be overridden via WORKER_THREAD_COUNT environment variable
+worker.thread.count=${WORKER_THREAD_COUNT:3}
 
 # Base processing time in milliseconds (default: 1000)
 event.base.processing.time.ms=1000

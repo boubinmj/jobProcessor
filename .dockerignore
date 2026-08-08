@@ -1,0 +1,12 @@
+.git/
+.gitignore
+target/
+.DS_Store
+*.log
+.vscode/
+.idea/
+*.iml
+node_modules/
+README.md
+Makefile
+deps.txt

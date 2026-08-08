@@ -45,6 +45,18 @@ Application will be available at: **http://localhost:8080**
 
 ---
 
+## Build & Run with Make
+
+```bash
+make build              # Build the Docker image
+make install            # Install dependencies  
+make run-build-server   # Build and start the server
+```
+
+Then access the app at **http://localhost:8080**
+
+---
+
 ## Learn More
 
 For comprehensive documentation including:

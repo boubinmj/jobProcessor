@@ -10,7 +10,7 @@ This project demonstrates several core backend engineering concepts, including c
 
 ## Features
 
-✅ **Fully Implemented:**
+**Fully Implemented:**
 
 - Submit events through REST API (`POST /api/events`)
 - Process events asynchronously using configurable pool of worker threads (default: 3)

@@ -8,6 +8,23 @@ A concurrent event processing system built with Spring Boot and Docker. Submit e
 
 ## Quick Start
 
+### Prerequisites
+
+Before getting started, you'll need:
+
+- Docker and Docker Compose installed
+- Java 11+ (only for Option 2: Local Maven Build)
+- Maven 3.6+ (only for Option 2: Local Maven Build)
+
+#### Docker Group Setup (Required for Option 1 & 3)
+
+To run Docker commands without `sudo`, add your user to the `docker` group:
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
 ### Step 1
 
 Clone the repository from github.

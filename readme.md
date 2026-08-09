@@ -29,8 +29,6 @@ Choose your platform below:
 docker-compose up --build
 ```
 
-Application available at: **http://localhost:8080**
-
 ---
 
 ## Windows
@@ -40,8 +38,6 @@ Application available at: **http://localhost:8080**
 ```bash
 docker-compose up --build
 ```
-
-Application available at: **http://localhost:8080**
 
 ---
 
@@ -63,8 +59,6 @@ docker-compose up --build
 sudo docker-compose up --build
 ```
 
-Application available at: **http://localhost:8080**
-
 ---
 
 ## Alternative: Local Maven Build (All Platforms)
@@ -75,8 +69,6 @@ Application available at: **http://localhost:8080**
 mvn clean install
 mvn spring-boot:run
 ```
-
-Application available at: **http://localhost:8080**
 
 ---
 

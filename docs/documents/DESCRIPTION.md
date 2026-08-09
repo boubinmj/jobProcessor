@@ -46,28 +46,8 @@ This project demonstrates several core backend engineering concepts, including c
 
 ## Architecture
 
+![image](/docs/media/EventProcessorStateDiagram.drawio.png)
 ```
-    Web Browser              REST API                Worker Threads
-        │                       │                          │
-        ├──────POST /api/events─┤                          │
-        │                       ├─────► EventProcessor     │
-        │                       │           │               │
-        │                       │           ├──► BlockingQueue
-        │                       │           │               │
-        │                       │           │      ┌────────┼────────┬────────┐
-        │                       │           │      ▼        ▼        ▼        ▼
-        │                       │           │   Worker1  Worker2  Worker3  (more)
-        │                       │           │      │        │        │
-        │                  Event saved ◄───┤      └────────┼────────┘
-        │                  to database  │ EventRepository  │
-        │                       │           │               │
-        │◄──────GET /api/events─┤◄──────────┴───────────────┤
-        │   (with metrics)      │                          │
-        │                       │    H2 Database           │
-        │   Dashboard           │    (Persisted Events)    │
-        │   with metrics        │                          │
-        └───────────────────────┘
-
 Event Lifecycle:
   1. Client submits event via POST /api/events
   2. EventService creates Event entity (status: QUEUED)
@@ -478,8 +458,3 @@ CREATE TABLE events (
   result VARCHAR(1000)
 );
 ```
-
-View the H2 console at: http://localhost:8080/h2-console
-- JDBC URL: `jdbc:h2:mem:testdb`
-- User: `sa`
-- Password: (leave blank)

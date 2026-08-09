@@ -25,6 +25,8 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
+**If you seriously do not want to do this, but stil want to run the project with docker-compose, just type sudo <command> when building/running the project, and the docker.sock permission issue will likely be resolved.**
+
 ### Step 1
 
 Clone the repository from github.

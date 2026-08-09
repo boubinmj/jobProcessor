@@ -2,18 +2,12 @@
 
 A concurrent event processing system built with Spring Boot and Docker. Submit events via REST API, watch them get processed by a pool of worker threads in real-time through an interactive dashboard.
 
-**For detailed documentation, see [DESCRIPTION.md](DESCRIPTION.md)**
-
----
-
-## Quick Start
-
-### Prerequisites
+**For detailed documentation, see [DESCRIPTION.md](docs/documents/DESCRIPTION.md)**
 
 Before getting started, you'll need:
 
 - Docker and Docker Compose installed
-- Java 11+ (only for Option 2: Local Maven Build)
+- Java 17+ (only for Option 2: Local Maven Build)
 - Maven 3.6+ (only for Option 2: Local Maven Build)
 
 #### Docker Group Setup (Required for Option 1 & 3)

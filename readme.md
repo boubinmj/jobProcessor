@@ -4,70 +4,96 @@ A concurrent event processing system built with Spring Boot and Docker. Submit e
 
 **For detailed documentation, see [DESCRIPTION.md](docs/documents/DESCRIPTION.md)**
 
-Before getting started, you'll need:
+---
 
-- Docker and Docker Compose installed
-- Java 17+ (only for Option 2: Local Maven Build)
-- Maven 3.6+ (only for Option 2: Local Maven Build)
+## Quick Start
 
-#### Docker Group Setup (Required for Option 1 & 3)
-
-To run Docker commands without `sudo`, add your user to the `docker` group:
+### Clone the Repository
 
 ```bash
-sudo usermod -aG docker $USER
-newgrp docker
+git clone https://github.com/boubinmj/jobProcessor.git
+cd jobProcessor
 ```
 
-**If you seriously do not want to do this, but stil want to run the project with docker-compose, just type sudo <command> when building/running the project, and the docker.sock permission issue will likely be resolved.**
+### Build & Run
 
-### Step 1
+Choose your platform below:
 
-Clone the repository from github.
+---
 
-#### SSH
+## macOS
 
-```bash
-git clone git@github.com:boubinmj/jobProcessor.git
-```
-#### HTTP
-
-```bash
-git clone git@github.com:boubinmj/jobProcessor.git
-```
-### Step 2
-
-Build and run the project
-
-#### Option 1: Docker (Recommended - No Java/Maven Required)
+**Prerequisites:** Docker Desktop installed
 
 ```bash
 docker-compose up --build
 ```
 
-#### Option 2: Local Maven Build
+Application available at: **http://localhost:8080**
+
+---
+
+## Windows
+
+**Prerequisites:** Docker Desktop installed
+
+```bash
+docker-compose up --build
+```
+
+Application available at: **http://localhost:8080**
+
+---
+
+## Linux
+
+**Prerequisites:** Docker and Docker Compose installed
+
+#### Option 1: Add user to docker group (recommended, one-time setup)
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+docker-compose up --build
+```
+
+#### Option 2: Run with sudo (if you skip the group setup)
+
+```bash
+sudo docker-compose up --build
+```
+
+Application available at: **http://localhost:8080**
+
+---
+
+## Alternative: Local Maven Build (All Platforms)
+
+**Prerequisites:** Java 17+, Maven 3.6+
 
 ```bash
 mvn clean install
 mvn spring-boot:run
 ```
 
+Application available at: **http://localhost:8080**
 
-#### Option 3: Build & Run with Make
+---
+
+## Using Make Commands
 
 ```bash
 make build              # Build the Docker image
-make install            # Install dependencies  
 make run-build-server   # Build and start the server
 ```
 
-Then access the app at **http://localhost:8080/index.html**
+---
 
-## Step 3
-Access the application
+## Access the Application
 
 - **Dashboard**: http://localhost:8080/index.html
 - **REST API**: http://localhost:8080/api/events
+- **H2 Console**: http://localhost:8080/h2-console
 
 ---
 
